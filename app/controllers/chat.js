@@ -12,7 +12,7 @@ module.exports.iniciaChat = function(application, req, res){
     }
 
     //recupera a variável global 'io' e "emit" uma mensagem
-    application.get('io').emit('msg', dadosForm)
+    application.get('io').emit('msgParaCliente', {apelido:dadosForm.apelido, mensagem: ' acabou de entrar no chat'})
     console.log(dadosForm);
-    res.render('chat');
+    res.render('chat', {dadosForm: dadosForm});
 }
