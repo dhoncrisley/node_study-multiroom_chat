@@ -20,12 +20,12 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+//ativa o validator em requisições(req) para todo o projeto, ex: "req.assert('apelido', 'O campo apelido não pode ser vazio').notEmpty();""
 app.use(validator());
 
 //importa todas as classes de controllers, models e rotas para o APP
 consign()
     .include('app/routes')
-    //.then('config/dbConnection.js')
     .then('app/models')
     .then('app/controllers')
     .into(app);

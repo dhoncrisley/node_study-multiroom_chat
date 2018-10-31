@@ -109,6 +109,7 @@
 		 crossorigin="anonymous"></script>
 		<script src="/socket.io/socket.io.js"></script>
 		<script>
+			// define o socket na página
 			var socket = io('http://localhost');
 
 			$('#enviar_mensagem').click(function () {
@@ -126,7 +127,9 @@
 				var html = '';
 				html += '<div class="dialogo"><h4>' + data.apelido + '</h4><p>' + data.mensagem + '</p></div>';
 				$('#dialogos').append(html);
-				window.scrolTo(0, document.body.scrollHeight);
+
+				window.scrollTo(0, document.body.scrollHeight);
+
 			});
 			socket.on('participantesParaCliente', function (data) {
 				var html = '';
